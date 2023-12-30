@@ -1,10 +1,21 @@
 import { Prefecture } from '@/types/prefecture'
-import { useState } from 'react'
-export default function CheckboxItem({ item }: { item: Prefecture }) {
+import { Dispatch, SetStateAction, useState } from 'react'
+export default function CheckboxItem({
+  item,
+  setSelectedPref
+}: {
+  item: Prefecture
+  setSelectedPref: Dispatch<SetStateAction<number[]>>
+}) {
   const [isChecked, setIsChecked] = useState(false)
-
   const checkHandler = () => {
-    setIsChecked(!isChecked) // チェックの状態を反転させる
+    if (isChecked) {
+      setSelectedPref((prev) => prev.filter((prefCode) => prefCode !== item.prefCode))
+      setIsChecked(false)
+    } else {
+      setSelectedPref((prev) => [...prev, item.prefCode])
+      setIsChecked(true)
+    }
   }
   return (
     <div key={item.prefCode} className="check-item">

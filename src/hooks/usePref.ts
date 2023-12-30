@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { PrefectureNextResponse } from '@/types/prefecture'
+import { PrefectureNextResponse, Prefecture } from '@/types/prefecture'
 
 class CustomError extends Error {
   status: number
@@ -12,7 +12,7 @@ class CustomError extends Error {
 }
 
 const usePref = () => {
-  const [pref, setPref] = useState<PrefectureNextResponse | null>(null)
+  const [pref, setPref] = useState<Prefecture[] | null>(null)
   useEffect(() => {
     const fetchPref = async () => {
       const res = await fetch('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
@@ -30,7 +30,7 @@ const usePref = () => {
         }
       }
       const data: PrefectureNextResponse = await res.json()
-      setPref(data)
+      setPref(data.result)
     }
     fetchPref()
   }, [])
