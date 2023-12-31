@@ -50,7 +50,6 @@ export default function Graph({ selectedPref }: { selectedPref: number[] }) {
   useEffect(() => {
     // 表示用のステートを変更する
     const selectedPopulateData = populateData?.filter((item) => selectedPref.includes(item.prefCode))
-    console.log(selectedPopulateData)
     if (selectedPopulateData) setSelectedPopulate(selectedPopulateData)
   }, [selectedPref])
   return <HighchartsReact highcharts={Highcharts} options={options} />
