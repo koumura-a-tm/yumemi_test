@@ -1,10 +1,15 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import { useRef, useState } from 'react'
+import CheckboxList from '@/components/CheckboxList'
+import Graph from '@/components/Graph'
 
 export default function Home() {
+  const [selectedPref, setSelectedPref] = useState<number[]>([])
   return (
-    <main className={styles.main}>
-      <h1>Home</h1>
+    <main>
+      <h1>都道府県別人口推移</h1>
+      <CheckboxList setSelectedPref={setSelectedPref} />
+      <Graph selectedPref={selectedPref} />
     </main>
   )
 }
