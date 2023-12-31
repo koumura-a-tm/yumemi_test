@@ -2,7 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Create .env.local directly under the root directory and .
+Write NEXT_PUBLIC_RESAS_API_KEY
+
+```.env.local
+NEXT_PUBLIC_RESAS_API_KEY=
+```
 
 ```bash
 npm run dev
