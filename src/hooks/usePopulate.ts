@@ -4,14 +4,6 @@ import { useState, useEffect } from 'react'
 import { PopulationData, PopulationResponse } from '@/types/population'
 import usePref from '@/hooks/usePref'
 
-class CustomError extends Error {
-  status: number
-  constructor(message: string, status: number) {
-    super(message)
-    this.status = status
-  }
-}
-
 const usePopulate = () => {
   const [populateData, setPopulateData] = useState<
     { data: PopulationData; prefCode: number; prefName: string }[] | null
