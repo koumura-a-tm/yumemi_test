@@ -11,8 +11,9 @@ class CustomError extends Error {
   }
 }
 
-const usePref = () => {
+export const usePref = () => {
   const [pref, setPref] = useState<Prefecture[] | null>(null)
+
   useEffect(() => {
     const fetchPref = async () => {
       const res = await fetch('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
@@ -34,7 +35,6 @@ const usePref = () => {
     }
     fetchPref()
   }, [])
+
   return { pref, setPref }
 }
-
-export default usePref

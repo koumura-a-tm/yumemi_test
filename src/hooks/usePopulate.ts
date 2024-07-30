@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { PopulationData, PopulationResponse } from '@/types/population'
-import usePref from '@/hooks/usePref'
+import { usePref } from '@/hooks/usePref'
 
-const usePopulate = () => {
+export const usePopulate = () => {
   const [populateData, setPopulateData] = useState<
     { data: PopulationData; prefCode: number; prefName: string }[] | null
   >(null)
+
   const { pref } = usePref()
 
   useEffect(() => {
@@ -35,5 +36,3 @@ const usePopulate = () => {
 
   return { populateData, setPopulateData }
 }
-
-export default usePopulate

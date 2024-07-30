@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '都道府県人工推移',
-  description: '都道府県の人口推移が見れるWebApp'
+  title: 'RESAS Chart App',
+  description: 'RESAS Chart App - 都道府県ごとの人口遷移チャートアプリ'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>{children}</body>
     </html>
   )

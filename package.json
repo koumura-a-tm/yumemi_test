@@ -7,14 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir src",
+    "lint:eslint": "eslint ./src --ext .ts,.tsx",
     "format": "prettier --write --ignore-path .gitignore './**/*.{ts,tsx}'",
     "test": "vitest"
   },
   "dependencies": {
+    "highcharts": "^11.4.6",
     "highcharts-react-official": "^3.2.1",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@testing-library/react": "^14.1.2",
@@ -26,7 +28,7 @@
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",
     "jsdom": "^23.0.1",
-    "prettier": "^3.1.1",
+    "prettier": "^3.3.3",
     "typescript": "^5",
     "vitest": "^1.1.0"
   }
