@@ -1,41 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RESAS Graph App - 都道府県ごとの人口遷移グラフ表示アプリ
 
-## Getting Started
+## 作成したアプリケーション
 
-Create .env.local directly under the root directory and .
-Write NEXT_PUBLIC_RESAS_API_KEY
+- https://yumemi-test-chart.vercel.app/
 
-```.env.local
-NEXT_PUBLIC_RESAS_API_KEY=
-```
+## 開発
+
+### 構成
+
+| カテゴリ                  | 名前                                  |
+| ------------------------- | ------------------------------------- |
+| Web Application Framework | Next.js                               |
+| UI Library                | React                                 |
+| Programming Language      | TypeScript                            |
+| Chart Library             | Highcharts                            |
+| Styling                   | CSS                                   |
+| Package Manager           | npm                                   |
+
+
+### 環境構築
+
+#### RESAS API から API Key を取得
+
+- RESAS API に登録し、API Key の取得が必要
+
+- .env.local を作成し、取得した API Key をセットする
 
 ```bash
-npm run dev
+NEXT_PUBLIC_RESAS_API_KEY=(取得した API Key)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### RESAS API 概要
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-## RESAS API
 ```
 https://opendata.resas-portal.go.jp/docs/api/v1/index.html
 ```
+
+#### ライブラリ の インストール
+
+```bash
+$ npm install
+```
+
+#### 開発サーバ の 起動
+
+```bash
+$ npm run dev
+```
+
+#### ブラウザ で 表示確認
+
+- localhost:3000
