@@ -15,6 +15,12 @@ export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
     }[]
   >([])
 
+  // 表示用のstate を変更する
+  useEffect(() => {
+    const selectedPopulateData = populateData?.filter((item) => selectedPref.includes(item.prefCode))
+    if (selectedPopulateData) setSelectedPopulate(selectedPopulateData)
+  }, [selectedPref, populateData])
+
   const categories =
     selectedPopulate.length > 0 ? selectedPopulate[0].data.data[0].data.map((item) => item.year.toString()) : undefined
 
@@ -50,12 +56,6 @@ export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
     },
     series: series
   }
-
-  useEffect(() => {
-    // 表示用のstate を変更する
-    const selectedPopulateData = populateData?.filter((item) => selectedPref.includes(item.prefCode))
-    if (selectedPopulateData) setSelectedPopulate(selectedPopulateData)
-  }, [selectedPref, populateData])
 
   return (
     <section>
