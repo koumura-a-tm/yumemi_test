@@ -1,16 +1,18 @@
 import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+import { usePopulate } from '../../../hooks/usePopulate'
 
-import { usePopulate } from '@/hooks/usePopulate'
-
-export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
+export const useGetChartData = (selectedPref: number[]) => {
+  // usePopulateフック を使用して populateData を取得
   const { populateData } = usePopulate()
 
+  // selectedPref に含まれる 都道府県コード に基づいて populateData をフィルタリング
   const selectedPopulate = populateData?.filter((item) => selectedPref.includes(item.prefCode)) || []
 
+  // カテゴリ（年度）の設定。データが存在する場合 は 年度 を抽出
   const categories =
     selectedPopulate.length > 0 ? selectedPopulate[0].data.data[0].data.map((item) => item.year.toString()) : undefined
 
+  // seriesデータの設定。選択された都道府県ごと に データをマッピング
   const series: Highcharts.SeriesOptionsType[] =
     selectedPopulate.length > 0
       ? selectedPopulate.map((item) => ({
@@ -26,6 +28,7 @@ export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
           }
         ]
 
+  // Highcharts の オプション設定
   const options: Highcharts.Options = {
     title: {
       text: ''
@@ -44,13 +47,5 @@ export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
     series: series
   }
 
-  return (
-    <section>
-      <h2>総人口推移</h2>
-
-      <div className="populationContent">
-        <HighchartsReact highcharts={Highcharts} options={options} />
-      </div>
-    </section>
-  )
+  return options
 }

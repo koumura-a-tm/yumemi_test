@@ -12,6 +12,7 @@ const CustomError = (message: string, status: number) => {
 
 // 都道府県データ を取得する関数
 const fetchPref = async () => {
+  // https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
   const res = await fetch('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
     headers: {
       'X-API-KEY': process.env.NEXT_PUBLIC_RESAS_API_KEY!

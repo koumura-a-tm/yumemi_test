@@ -8,7 +8,7 @@ export const Button = ({
   pref: Prefecture
   setSelected: Dispatch<SetStateAction<number[]>>
 }) => {
-  // ボタンが選択されているかどうかの状態を管理するフック
+  // ボタンが選択されているかどうかの状態 を管理するフック
   const [isChecked, setIsChecked] = useState(false)
 
   // ボタンがクリックされたときのハンドラー

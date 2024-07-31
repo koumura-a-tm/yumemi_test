@@ -8,6 +8,7 @@ import { usePref } from '@/hooks/usePref'
 // 都道府県ごとの人口データを取得する関数
 const fetchPopulationData = async (pref: { prefCode: number; prefName: string }[]) => {
   const promiseFunc = pref.map(async (item) => {
+    // https://opendata.resas-portal.go.jp/docs/api/v1/population/composition/perYear.html
     const data = fetch(
       `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${item.prefCode}`,
       {
