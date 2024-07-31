@@ -1,25 +1,12 @@
-import { useState, useEffect } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
 import { usePopulate } from '@/hooks/usePopulate'
-import { PopulationData } from '@/types/population'
 
 export const Chart = ({ selectedPref }: { selectedPref: number[] }) => {
   const { populateData } = usePopulate()
-  const [selectedPopulate, setSelectedPopulate] = useState<
-    {
-      data: PopulationData
-      prefCode: number
-      prefName: string
-    }[]
-  >([])
 
-  // 表示用のstate を変更する
-  useEffect(() => {
-    const selectedPopulateData = populateData?.filter((item) => selectedPref.includes(item.prefCode))
-    if (selectedPopulateData) setSelectedPopulate(selectedPopulateData)
-  }, [selectedPref, populateData])
+  const selectedPopulate = populateData?.filter((item) => selectedPref.includes(item.prefCode)) || []
 
   const categories =
     selectedPopulate.length > 0 ? selectedPopulate[0].data.data[0].data.map((item) => item.year.toString()) : undefined
