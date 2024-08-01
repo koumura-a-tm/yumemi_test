@@ -1,9 +1,5 @@
 # RESAS Graph App - 都道府県ごとの人口遷移グラフ表示アプリ
 
-## 作成したアプリケーション
-
-- https://yumemi-test-chart.vercel.app/
-
 ## 開発
 
 ### 構成
@@ -51,3 +47,10 @@ $ npm run dev
 #### ブラウザ で 表示確認
 
 - localhost:3000
+
+
+# 残りタスク
+## ちゃんと実装する
+- 新しいPJで作る
+- API通信しているので、useEffect　使う
+
