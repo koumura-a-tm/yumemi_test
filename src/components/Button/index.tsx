@@ -9,6 +9,7 @@ export const Button = ({
   setSelected: Dispatch<SetStateAction<number[]>>
 }) => {
   // ボタンが選択されているかどうかの状態 を管理するフック
+  // TODO: これ不要そう？
   const [isChecked, setIsChecked] = useState(false)
 
   // ボタンがクリックされたときのハンドラー

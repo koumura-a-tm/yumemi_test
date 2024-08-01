@@ -47,5 +47,7 @@ export const usePref = () => {
     })
 
   // 都道府県データ と その更新関数 を返す
+
+  // TODO: Result だけでいけそうかも？
   return { pref, setPref }
 }

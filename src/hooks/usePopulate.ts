@@ -6,6 +6,8 @@ import { PopulationData, PopulationResponse } from '@/types/population'
 import { usePref } from '@/hooks/usePref'
 
 // 都道府県ごとの人口データを取得する関数
+
+// TODO: 新規取得 map のところが処理重複してそう 毎回全データ取ってきてそう
 const fetchPopulationData = async (pref: { prefCode: number; prefName: string }[]) => {
   const promiseFunc = pref.map(async (item) => {
     // https://opendata.resas-portal.go.jp/docs/api/v1/population/composition/perYear.html
