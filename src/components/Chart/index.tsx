@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
+// Highcharts の データ設定ファイル
 import { useGetChartData } from './hooks/useGetChartData'
 
 // selectedPref を プロパティとして受け取る

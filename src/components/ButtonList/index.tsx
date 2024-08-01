@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { Button } from '../Button'
 import { usePref } from '@/hooks/usePref'
 
+// props として setSelected を受け取る - 選択された都道府県のIDを管理するための state更新関数
 export const ButtonList = ({ setSelected }: { setSelected: Dispatch<SetStateAction<number[]>> }) => {
   // usePrefフック を 呼び出して prefデータ を取得
   const { pref } = usePref()

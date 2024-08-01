@@ -10,15 +10,19 @@ const CustomError = (message: string, status: number) => {
   return error
 }
 
-// 都道府県データ を取得する関数
+// 都道府県データ を 非同期 で取得する関数
+// https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
 const fetchPref = async () => {
-  // https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
   const res = await fetch('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
+    // HTTPリクエスト の ヘッダー を設定する記述
+    // この設定により、APIリクエストを送信する際に必要な認証情報 が ヘッダーに含まれる
     headers: {
       'X-API-KEY': process.env.NEXT_PUBLIC_RESAS_API_KEY!
     }
   })
 
+  // APIリクエストが成功した場合、レスポンスデータ を JSON形式で解析し、その結果を返す
+  // APIリクエストが失敗した場合、レスポンスを解析して CustomError を スローします。
   if (!res.ok) {
     try {
       const err: { message: string } = await res.json()
@@ -27,7 +31,6 @@ const fetchPref = async () => {
       throw CustomError('レスポンス解析に失敗しました', res.status)
     }
   }
-
   const data: PrefectureNextResponse = await res.json()
   return data.result
 }
